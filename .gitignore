@@ -3,3 +3,8 @@
 *.swp
 __pycache__
 .vscode/settings.json
+/.idea/dictionaries/13140.xml
+/.idea/other.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
+/.idea/workspace.xml

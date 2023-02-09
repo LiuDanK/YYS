@@ -9,6 +9,7 @@ import traceback
 import numpy as np
 import mss
 import action
+import config
 
 # 检测系统
 print('操作系统:', sys.platform)
@@ -79,7 +80,7 @@ def select_mode():
         print('请输入数字')
         select_mode()
 
-    mode = [0, tupo, yuhun, yuhun2, yuhundanren,
+    mode = [0, tupo, yuhun_siji, yuhun_dashou, yuhun_danren,
             gouliang, gouliang2, gouliang3,
             baigui, douji, huodong,
             card, chouka, shengxing, mijing, yaoqi]
@@ -213,7 +214,7 @@ def tupo():
 
 ########################################################
 # 御魂司机
-def yuhun():
+def yuhun_siji():
     "御魂当司机"
     global last_click
     cishu = 0
@@ -277,7 +278,7 @@ def yuhun():
 # 御魂打手
 
 
-def yuhun2():
+def yuhun_dashou():
     "御魂当打手"
     global last_click
     cishu = 0
@@ -348,15 +349,16 @@ def yuhun2():
                 xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 last_click = i
-                t = random.randint(15, 30) / 100
+                t = random.randint(30, 80) / 100
                 time.sleep(t)
                 break
 
 
 ########################################################
 # 御魂单人
-def yuhundanren():
+def yuhun_danren():
     "御魂单刷"
+    print('请先选择好要打的层数，并设置好阵容')
     global last_click
     cishu = 0
     refresh = 0
@@ -377,8 +379,8 @@ def yuhundanren():
             print('体力不足')
             select_mode()
 
-        for i in ['jujue', 'querenyuhun', 'ying', 'jiangli', 'jixu',
-                  'tiaozhan', 'tiaozhan2', 'tiaozhan3', 'shibai']:
+        for i in ['jujue', 'querenyuhun', 'ying', 'jixu', 'tiaozhan', 'tiaozhan2', 'tiaozhan3', 'shibai',
+                  'zhunbei', 'zhunbei2']:
             want = imgs[i]
             size = want[0].shape
             h, w, ___ = size
@@ -390,7 +392,6 @@ def yuhundanren():
                 else:
                     refresh = 0
                 last_click = i
-                # print('重复次数：',refresh)
                 if refresh > 6:
                     print('进攻次数上限')
                     select_mode()
@@ -400,9 +401,8 @@ def yuhundanren():
                     if refresh == 0:
                         cishu = cishu + 1
                     print('挑战次数：', cishu)
-                    t = random.randint(150, 300) / 100
-                else:
-                    t = random.randint(15, 30) / 100
+
+                t = random.randint(config.RANDOM_DELAY_MIN, config.RANDOM_DELAY_MAX) / 1000
                 xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 time.sleep(t)
