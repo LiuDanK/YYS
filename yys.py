@@ -3,7 +3,6 @@ import time
 import random
 import os
 import datetime
-import os
 import sys
 import pyautogui
 import traceback
@@ -40,6 +39,7 @@ start = time.time()
 # constants
 last_click = None
 
+
 # 以上启动，载入设置
 ##########################################################
 
@@ -48,7 +48,7 @@ def select_mode():
     "选择启动模式"
     global start
     end = time.time()
-    hours, rem = divmod(end-start, 3600)
+    hours, rem = divmod(end - start, 3600)
     minutes, seconds = divmod(rem, 60)
     print("运行时间：{:0>2}:{:0>2}:{:05.2f}".format(
         int(hours), int(minutes), seconds))
@@ -95,6 +95,7 @@ def select_mode():
         print('启动', command.__doc__, '模式')
         start = time.time()
         command()
+
 
 ##########################################################
 # 结节突破
@@ -144,7 +145,7 @@ def tupo():
                 # t = 5*60-20
                 # t=2
                 time.sleep(t)
-                cishu = cishu-1
+                cishu = cishu - 1
         elif liaotu == False:
             if cishu >= 31:
                 print('进攻次数上限')
@@ -157,7 +158,7 @@ def tupo():
         pts = action.locate(target, want, 0)
         if not len(pts) == 0:
             cishu = 6
-            refresh = refresh+1
+            refresh = refresh + 1
             print('进攻次数上限:', count)
 
         # 奖励
@@ -175,9 +176,9 @@ def tupo():
             if not len(pts) == 0:
                 if last_click == i:
                     if i == 'jingong' or i == 'jingong2':
-                        refresh = refresh+7
+                        refresh = refresh + 7
                     else:
-                        refresh = refresh+1
+                        refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -186,7 +187,7 @@ def tupo():
                     print('进攻次数上限')
                     select_mode()
 
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 t = random.randint(15, 50) / 100
                 if i == 'shibai':
@@ -199,7 +200,7 @@ def tupo():
                 elif i == 'jingong' or i == 'jingong2':
                     if refresh == 0:
                         cishu = cishu + 1
-                        count = count+1
+                        count = count + 1
                     print('进攻总次数：', count)
                     t = random.randint(500, 800) / 100
                 elif i == 'lingxunzhang' or i == 'lingxunzhang2':
@@ -247,9 +248,9 @@ def yuhun():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 elif i == 'querenyuhun':
-                    refresh = refresh+2
+                    refresh = refresh + 2
                 else:
                     refresh = 0
                 last_click = i
@@ -260,16 +261,17 @@ def yuhun():
 
                 if i == 'tiaozhan' or i == 'tiaozhan2':
                     if refresh == 0:
-                        cishu = cishu+1
+                        cishu = cishu + 1
                     print('挑战次数：', cishu)
                     t = random.randint(50, 150) / 100
                 else:
                     print('挑战中。。。', i)
                     t = random.randint(50, 100) / 100
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 time.sleep(t)
                 break
+
 
 ########################################################
 # 御魂打手
@@ -312,7 +314,7 @@ def yuhun2():
             target = screen
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 t = random.randint(15, 30) / 100
                 time.sleep(t)
@@ -328,9 +330,9 @@ def yuhun2():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 elif i == 'querenyuhun':
-                    refresh = refresh+2
+                    refresh = refresh + 2
                 else:
                     refresh = 0
 
@@ -340,10 +342,10 @@ def yuhun2():
                     select_mode()
                 elif refresh == 0 and i == 'jiangli' and not last_click == 'querenyuhun':
                     # print('last',last_click)
-                    cishu = cishu+1
+                    cishu = cishu + 1
                     print('挑战次数：', cishu)
                 print('挑战中。。。', i)
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 last_click = i
                 t = random.randint(15, 30) / 100
@@ -384,7 +386,7 @@ def yuhundanren():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -396,15 +398,16 @@ def yuhundanren():
                 print('挑战中。。。', i)
                 if i == 'tiaozhan' or i == 'tiaozhan2' or i == 'tiaozhan3':
                     if refresh == 0:
-                        cishu = cishu+1
+                        cishu = cishu + 1
                     print('挑战次数：', cishu)
                     t = random.randint(150, 300) / 100
                 else:
                     t = random.randint(15, 30) / 100
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 time.sleep(t)
                 break
+
 
 ########################################################
 # 探索司机
@@ -466,7 +469,7 @@ def gouliang():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if scalar:
-                    right = (854/2, 528/2)
+                    right = (854 / 2, 528 / 2)
                 else:
                     right = (854, 527)
                 right = action.cheat(right, 10, 10)
@@ -483,7 +486,7 @@ def gouliang():
                 pts = action.locate(target, want, 0)
                 if not len(pts) == 0:
                     if last_click == i:
-                        refresh = refresh+1
+                        refresh = refresh + 1
                     else:
                         refresh = 0
                     last_click = i
@@ -493,7 +496,7 @@ def gouliang():
                         select_mode()
 
                     if refresh == 0:
-                        count = count+1
+                        count = count + 1
                     print('点击小怪', i)
                     print('探索次数：', count)
                     xx = action.cheat(pts[0], w, h)
@@ -533,7 +536,7 @@ def gouliang():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -551,6 +554,7 @@ def gouliang():
                     t = random.randint(15, 30) / 100
                 time.sleep(t)
                 break
+
 
 ########################################################
 # 探索打手
@@ -599,7 +603,7 @@ def gouliang2():
 
                     if not len(pts) == 0:
                         if last_click == i:
-                            refresh = refresh+1
+                            refresh = refresh + 1
                         else:
                             refresh = 0
                         last_click = i
@@ -633,7 +637,7 @@ def gouliang2():
                     if a < 50:
                         break
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -643,7 +647,7 @@ def gouliang2():
                     select_mode()
 
                 print('领取奖励', i)
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 if i == 'jieshou' or i == 'jieshou1':
                     t = random.randint(15, 30) / 100
@@ -651,6 +655,7 @@ def gouliang2():
                     t = random.randint(15, 30) / 100
                 time.sleep(t)
                 break
+
 
 ########################################################
 # 探索单人
@@ -713,7 +718,7 @@ def gouliang3():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if scalar:
-                    right = (854/2, 528/2)
+                    right = (854 / 2, 528 / 2)
                 else:
                     right = (854, 527)
                 right = action.cheat(right, 10, 10)
@@ -730,7 +735,7 @@ def gouliang3():
                 pts = action.locate(target, want, 0)
                 if not len(pts) == 0:
                     if last_click == i:
-                        refresh = refresh+1
+                        refresh = refresh + 1
                     else:
                         refresh = 0
                     last_click = i
@@ -740,7 +745,7 @@ def gouliang3():
                         select_mode()
 
                     if refresh == 0:
-                        count = count+1
+                        count = count + 1
                     print('点击小怪', i)
                     print('探索次数：', count)
                     if count > 500:
@@ -759,7 +764,7 @@ def gouliang3():
                     pts = action.locate(screen, want, 0)
                     if not len(pts) == 0:
                         if last_click == i:
-                            refresh = refresh+1
+                            refresh = refresh + 1
                         else:
                             refresh = 0
                         last_click = i
@@ -789,7 +794,7 @@ def gouliang3():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -804,6 +809,7 @@ def gouliang3():
                 t = random.randint(15, 30) / 100
                 time.sleep(t)
                 break
+
 
 ########################################################
 # 百鬼
@@ -864,7 +870,7 @@ def baigui():
         pts = action.locate(target, want, 0)
         if not len(pts) == 0:
             if last_click == i:
-                refresh = refresh+1
+                refresh = refresh + 1
             else:
                 refresh = 0
                 last_click = i
@@ -872,9 +878,9 @@ def baigui():
             if refresh > 6:
                 print('进攻次数上限')
                 select_mode()
-            cishu = cishu+1
+            cishu = cishu + 1
             print('进入百鬼:', cishu)
-            xy = action.cheat(pts[0], w, h-10)
+            xy = action.cheat(pts[0], w, h - 10)
             pyautogui.click(xy)
             pyautogui.moveTo(xy)
             t = random.randint(10, 20) / 100
@@ -897,7 +903,7 @@ def baigui():
             pts2 = action.locate(target, want, 0)
             if not len(pts2) == 0:
                 print('点击开始: ', pts[0])
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 pyautogui.moveTo(xy)
                 t = random.randint(15, 30) / 100
@@ -905,16 +911,16 @@ def baigui():
             else:
                 # 选择押注
                 index = random.randint(0, 2)
-                pts2 = (300+index*340, 500)
+                pts2 = (300 + index * 340, 500)
                 print('选择押注: ', index)
 
-                xy = action.cheat(pts2, w, h-10)
+                xy = action.cheat(pts2, w, h - 10)
                 pyautogui.click(xy)
                 pyautogui.moveTo(xy)
                 t = random.randint(50, 100) / 100
                 time.sleep(t)
 
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 pyautogui.moveTo(xy)
                 t = random.randint(15, 30) / 100
@@ -946,7 +952,7 @@ def douji():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -958,30 +964,31 @@ def douji():
                 if i == 'douji' or i == 'douji4':
                     doujipaidui = 0
                     print('斗技开始', i)
-                    xy = action.cheat(pts[0], w, h-10)
+                    xy = action.cheat(pts[0], w, h - 10)
                     pyautogui.click(xy)
                     t = random.randint(15, 30) / 100
                     time.sleep(t)
                     break
                 elif i == 'doujiquxiao':
                     refresh = 0
-                    doujipaidui = doujipaidui+1
+                    doujipaidui = doujipaidui + 1
                     print('斗技搜索:', doujipaidui)
                     if doujipaidui > 5:
                         doujipaidui = 0
                         print('取消搜索')
-                        xy = action.cheat(pts[0], w, h-10)
+                        xy = action.cheat(pts[0], w, h - 10)
                         pyautogui.click(xy)
                         t = random.randint(15, 30) / 100
                         time.sleep(t)
                         break
                 else:
                     print('斗技中。。。', i)
-                    xy = action.cheat(pts[0], w, h-10)
+                    xy = action.cheat(pts[0], w, h - 10)
                     pyautogui.click(xy)
                     t = random.randint(50, 100) / 100
                     time.sleep(t)
                     break
+
 
 ########################################################
 # 当前活动
@@ -1021,7 +1028,7 @@ def huodong():
                 if i == 'hdjiacheng':
                     refresh = 0
                 elif last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -1034,7 +1041,7 @@ def huodong():
                 t = 0
                 if i == 'hdtiaozhan':
                     if refresh == 0:
-                        count = count+1
+                        count = count + 1
                     print('挑战次数：', count)
                     t = 1
                 if i == 'hdfaxian' or i == 'hdfaxian2':
@@ -1042,13 +1049,14 @@ def huodong():
                 if i == 'hdend':
                     if refresh == 0:
                         print('疲劳度满，休息10分钟')
-                        t = 10*60
+                        t = 10 * 60
                         time.sleep(t)
                 else:
-                    xy = action.cheat(pts[0], w, h-10)
+                    xy = action.cheat(pts[0], w, h - 10)
                     pyautogui.click(xy)
 
                 time.sleep(t)
+
 
 ##########################################################
 # 合成结界卡
@@ -1074,7 +1082,7 @@ def card():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -1084,7 +1092,7 @@ def card():
                     select_mode()
 
                 print('结界卡*', i)
-                xy = action.cheat(pts[0], w/2, h-10)
+                xy = action.cheat(pts[0], w / 2, h - 10)
                 pyautogui.click(xy)
                 break
         if len(pts) == 0:
@@ -1106,7 +1114,7 @@ def card():
                 select_mode()
             else:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = 'taiyin'
@@ -1116,7 +1124,7 @@ def card():
                     select_mode()
 
                 print('结界卡', i)
-                xy = action.cheat(pts[0], w/2, h-10)
+                xy = action.cheat(pts[0], w / 2, h - 10)
                 pyautogui.click(xy)
                 pyautogui.moveTo(xy)
 
@@ -1130,7 +1138,7 @@ def card():
         pts = action.locate(target, want, 0)
         if not len(pts) == 0:
             if last_click == i:
-                refresh = refresh+1
+                refresh = refresh + 1
             else:
                 refresh = 0
             last_click = 'hecheng'
@@ -1140,11 +1148,12 @@ def card():
                 select_mode()
 
             print('合成中。。。')
-            xy = action.cheat(pts[0], w, h-10)
+            xy = action.cheat(pts[0], w, h - 10)
             pyautogui.click(xy)
             pyautogui.moveTo(xy)
 
         time.sleep(1)
+
 
 ##########################################################
 # 抽卡
@@ -1171,12 +1180,13 @@ def chouka():
             if count > 200:
                 print('次数上限')
                 select_mode()
-            count = count+1
+            count = count + 1
             print('抽卡中。。。', count)
-            xy = action.cheat(pts[0], w, h-10)
+            xy = action.cheat(pts[0], w, h - 10)
             pyautogui.click(xy)
             # t = random.randint(1,3) / 100
             # time.sleep(t)
+
 
 ##########################################################
 # 蓝蛋升级
@@ -1204,7 +1214,7 @@ def shengxing():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -1214,17 +1224,18 @@ def shengxing():
                     select_mode()
 
                 print('升级中。。。', i)
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 if i == 'querenshengxing':
                     if refresh == 0:
-                        count = count+1
+                        count = count + 1
                     print('升级个数：', count)
                     t = random.randint(250, 350) / 100
                 else:
                     t = random.randint(20, 100) / 100
 
                 time.sleep(t)
+
 
 ##########################################################
 # 秘境召唤
@@ -1259,7 +1270,7 @@ def mijing():
                 pts = action.locate(target, want, 0)
                 if not len(pts) == 0:
                     if last_click == i:
-                        refresh = refresh+1
+                        refresh = refresh + 1
                     else:
                         refresh = 0
                     last_click = i
@@ -1269,7 +1280,7 @@ def mijing():
                         select_mode()
 
                     print('秘境召唤。。。', i)
-                    xy = action.cheat(pts[0], w, h-10)
+                    xy = action.cheat(pts[0], w, h - 10)
                     pyautogui.click(xy)
                     # t = random.randint(10,100) / 100
                     # time.sleep(t)
@@ -1283,7 +1294,7 @@ def mijing():
                 pts = action.locate(target, want, 0)
                 if not len(pts) == 0:
                     if last_click == i:
-                        refresh = refresh+1
+                        refresh = refresh + 1
                     else:
                         refresh = 0
                     last_click = i
@@ -1294,11 +1305,12 @@ def mijing():
 
                     if i == 'canjia':
                         print('加入秘境召唤！', i)
-                    xy = action.cheat(pts[0], w, h-10)
+                    xy = action.cheat(pts[0], w, h - 10)
                     pyautogui.click(xy)
                     t = random.randint(10, 30) / 100
                     time.sleep(t)
                     break
+
 
 ########################################################
 # 妖气封印和秘闻
@@ -1327,7 +1339,7 @@ def yaoqi():
             pts = action.locate(target, want, 0)
             if not len(pts) == 0:
                 if last_click == i:
-                    refresh = refresh+1
+                    refresh = refresh + 1
                 else:
                     refresh = 0
                 last_click = i
@@ -1338,16 +1350,16 @@ def yaoqi():
 
                 if i == 'zidongpipei' or i == 'tiaozhan3' or i == 'tiaozhan4':
                     if refresh == 0:
-                        count = count+1
+                        count = count + 1
                     print('次数：', count)
-                    t = 100/100
+                    t = 100 / 100
                 elif i == 'shibai':
                     print('自动结束')
                     select_mode()
                 else:
                     print('活动中。。。', i)
                     t = random.randint(30, 80) / 100
-                xy = action.cheat(pts[0], w, h-10)
+                xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 time.sleep(t)
                 break

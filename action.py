@@ -27,7 +27,7 @@ def screenshot(monitor):
         #print(screen.shape)
         #cv2.waitKey(0)
     else:
-        im = numpy.array(mss.mss().grab(monitor))
+        im = numpy.array(get_game_screen(monitor))
         screen = cv2.cvtColor(im, cv2.COLOR_BGRA2BGR)
 
     return screen
@@ -122,3 +122,22 @@ def cheat(p, w, h):
     e,f = a + c, b + d
     y = [e, f]
     return(y)
+
+def get_game_screen(mp):
+    "多个显示器的情况下，获取游戏所在的显示器，下面的下标2是手动写的，双屏的副屏"
+    sct = mss.mss()
+    monitors = sct.monitors
+    # 如果有第二个显示器
+    if len(monitors) >= 2:
+        # 获取第二个显示器的坐标和尺寸
+        second_monitor = monitors[1]
+        monitor = {"top": second_monitor["top"], "left": second_monitor["left"], "width": second_monitor["width"],
+                   "height": second_monitor["height"]}
+
+        # 截取第二个显示器的图像
+        sct_img = sct.grab(monitor)
+        return sct_img
+    else:
+        # 截取传入的显示器
+        sct_img = sct.grab(mp)
+        return sct_img
