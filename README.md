@@ -14,3 +14,12 @@ Mac：在终端（terminal）下分别运行 pip3 install opencv-python 和 pip3
 桌面版必须使用原始分辨率，其它分辨率则需要重新截图才能正常工作。
 
 解放双手 Have fun!
+
+```
+
+pip install opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install pyautogui -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install mss -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install Pillow -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+```
