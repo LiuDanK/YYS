@@ -36,6 +36,7 @@ last_click=None
 #以上启动，载入设置
 ##########################################################
 def select_mode():
+    "选择启动模式"
     global start
     end = time.time()
     hours, rem = divmod(end-start, 3600)
@@ -87,6 +88,7 @@ def select_mode():
 ##########################################################
 #结节突破
 def tupo():
+    "结界突破"
     global last_click
     count=0 #总次数
     cishu = 0
@@ -202,6 +204,7 @@ def tupo():
 ########################################################
 #御魂司机
 def yuhun():
+    "御魂当司机，邀请别人"
     global last_click
     cishu=0
     refresh=0
@@ -262,6 +265,7 @@ def yuhun():
 ########################################################
 #御魂打手
 def yuhun2():
+    "御魂当打手,被邀请"
     global last_click
     cishu=0
     refresh=0
@@ -340,6 +344,7 @@ def yuhun2():
 ########################################################
 #御魂单人
 def yuhundanren():
+    "单刷御魂，体力不划算"
     global last_click
     cishu=0
     refresh=0
@@ -394,6 +399,7 @@ def yuhundanren():
 ########################################################
 #探索司机
 def gouliang():
+    "探索狗粮当司机"
     global last_click
     count=0
     refresh=0
@@ -538,6 +544,7 @@ def gouliang():
 ########################################################
 #探索打手
 def gouliang2():
+    "探索狗粮当打手，建议超星大舅"
     global last_click
     refresh=0
     while True:   #直到取消，或者出错
@@ -635,6 +642,7 @@ def gouliang2():
 ########################################################
 #探索单人
 def gouliang3():
+    "探索单刷"
     global last_click
     count=0
     refresh=0
@@ -786,6 +794,7 @@ def gouliang3():
 ########################################################
 #百鬼
 def baigui():
+    "砸百鬼夜行"
     global last_click
     refresh=0
     cishu=0
@@ -901,6 +910,7 @@ def baigui():
 ########################################################
 #斗技
 def douji():
+    "自动斗技"
     global last_click
     doujipaidui=0
     refresh=0
@@ -962,6 +972,7 @@ def douji():
 ########################################################
 #当前活动
 def huodong():
+    "当前活动，需要适配更新"
     global last_click
     count=0
     refresh=0
@@ -1026,6 +1037,7 @@ def huodong():
 ##########################################################
 #合成结界卡
 def card():
+    "合成结界卡，现在有合成方案，作用不大了"
     global last_click
     refresh=0
     while True:
@@ -1120,6 +1132,7 @@ def card():
 ##########################################################
 #抽卡
 def chouka():
+    "抽卡，我觉得不需要，笑死，非的雅痞"
     global last_click
     count=0
     while True:
@@ -1149,6 +1162,7 @@ def chouka():
 ##########################################################
 #蓝蛋升级
 def shengxing():
+    "蓝蛋升级"
     global last_click
     count=0
     refresh=0
@@ -1194,6 +1208,7 @@ def shengxing():
 ##########################################################
 #秘境召唤
 def mijing():
+    "秘境召唤，低频功能"
     global last_click
     refresh=0
     while True:
@@ -1265,6 +1280,7 @@ def mijing():
 ########################################################
 #妖气封印和秘闻
 def yaoqi():
+    "妖气封印和秘闻"
     global last_click
     count=0
     refresh=0
