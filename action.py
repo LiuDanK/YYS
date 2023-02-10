@@ -1,4 +1,9 @@
-import cv2, time, os, random, sys, mss
+import cv2
+import time
+import os
+import random
+import sys
+import mss
 import numpy
 from PIL import ImageGrab
 import config
@@ -127,6 +132,8 @@ def cheat(p, w, h):
     y = [e, f]
     return y
 
+# 多个显示器的情况下，获取游戏所在的显示器
+
 
 def get_game_screen(mp):
     "多个显示器的情况下，获取游戏所在的显示器"
@@ -139,7 +146,7 @@ def get_game_screen(mp):
     # 获取第1个显示器的坐标和尺寸，也就是主显示器
     target_monitor = monitors[config.MAIN_SCREEN_INDEX]
     monitor = {"top": target_monitor["top"], "left": target_monitor["left"], "width": target_monitor["width"],
-                   "height": target_monitor["height"]}
-    # 截取第二个显示器的图像
+               "height": target_monitor["height"]}
+
     sct_img = sct.grab(monitor)
     return sct_img

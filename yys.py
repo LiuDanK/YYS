@@ -41,9 +41,7 @@ start = time.time()
 last_click = None
 
 
-# 以上启动，载入设置
-##########################################################
-
+# region 以上启动，载入设置
 
 def select_mode():
     "选择启动模式"
@@ -98,9 +96,10 @@ def select_mode():
         command()
 
 
-##########################################################
-# 结节突破
+# endregion
 
+
+# region 结节突破
 
 def tupo():
     "结界突破"
@@ -110,8 +109,7 @@ def tupo():
     refresh = 0
     liaotu = None
     while True:  # 直到取消，或者出错
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         # im = np.array(mss.mss().grab(monitor))
@@ -212,8 +210,11 @@ def tupo():
                 break
 
 
-########################################################
-# 御魂司机
+# endregion
+
+
+# region 御魂司机
+
 def yuhun_siji():
     "御魂当司机"
     global last_click
@@ -221,8 +222,7 @@ def yuhun_siji():
     refresh = 0
     while True:
         # 鼠标移到最右侧中止
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -274,9 +274,10 @@ def yuhun_siji():
                 break
 
 
-########################################################
-# 御魂打手
+# endregion
 
+
+# region 御魂打手
 
 def yuhun_dashou():
     "御魂当打手"
@@ -285,8 +286,7 @@ def yuhun_dashou():
     refresh = 0
     while True:
         # 鼠标移到最右侧中止
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -354,8 +354,10 @@ def yuhun_dashou():
                 break
 
 
-########################################################
-# 御魂单人
+# endregion
+
+
+# region 御魂单人
 def yuhun_danren():
     "御魂单刷"
     print('请先选择好要打的层数，并设置好阵容')
@@ -363,8 +365,7 @@ def yuhun_danren():
     cishu = 0
     refresh = 0
     while True:  # 直到取消，或者出错
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -402,15 +403,18 @@ def yuhun_danren():
                         cishu = cishu + 1
                     print('挑战次数：', cishu)
 
-                t = random.randint(config.RANDOM_DELAY_MIN, config.RANDOM_DELAY_MAX) / 1000
+                t = random.randint(config.RANDOM_DELAY_MIN,
+                                   config.RANDOM_DELAY_MAX) / 1000
                 xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 time.sleep(t)
                 break
 
 
-########################################################
-# 探索司机
+# endregion
+
+
+# region 探索司机
 
 
 def gouliang():
@@ -419,8 +423,7 @@ def gouliang():
     count = 0
     refresh = 0
     while True:  # 直到取消，或者出错
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -556,8 +559,10 @@ def gouliang():
                 break
 
 
-########################################################
-# 探索打手
+# endregion
+
+
+# region 探索打手
 
 
 def gouliang2():
@@ -565,8 +570,7 @@ def gouliang2():
     global last_click
     refresh = 0
     while True:  # 直到取消，或者出错
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -657,8 +661,10 @@ def gouliang2():
                 break
 
 
-########################################################
-# 探索单人
+# endregion
+
+
+# region 探索单人
 
 
 def gouliang3():
@@ -667,8 +673,7 @@ def gouliang3():
     count = 0
     refresh = 0
     while True:  # 直到取消，或者出错
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -811,8 +816,10 @@ def gouliang3():
                 break
 
 
-########################################################
-# 百鬼
+# endregion
+
+
+# region 百鬼
 
 
 def baigui():
@@ -821,8 +828,7 @@ def baigui():
     refresh = 0
     cishu = 0
     while True:  # 直到取消，或者出错
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -927,16 +933,17 @@ def baigui():
                 time.sleep(t)
 
 
-########################################################
-# 斗技
+# endregion
+
+
+# region 斗技
 def douji():
     "斗技"
     global last_click
     doujipaidui = 0
     refresh = 0
     while True:  # 直到取消，或者出错
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
         # 截屏
         screen = action.screenshot(monitor)
 
@@ -989,9 +996,10 @@ def douji():
                     time.sleep(t)
                     break
 
+# endregion
 
-########################################################
-# 当前活动
+
+# region 当前活动
 
 
 def huodong():
@@ -1000,8 +1008,7 @@ def huodong():
     count = 0
     refresh = 0
     while True:  # 直到取消，或者出错
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -1057,9 +1064,10 @@ def huodong():
 
                 time.sleep(t)
 
+# endregion
 
-##########################################################
-# 合成结界卡
+
+# region 合成结界卡
 
 
 def card():
@@ -1068,8 +1076,7 @@ def card():
     refresh = 0
     while True:
         # 鼠标移到右侧中止
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -1155,8 +1162,10 @@ def card():
         time.sleep(1)
 
 
-##########################################################
-# 抽卡
+# endregion
+
+
+# region 抽卡
 
 
 def chouka():
@@ -1165,8 +1174,7 @@ def chouka():
     count = 0
     while True:
         # 鼠标移到右侧中止
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -1188,8 +1196,10 @@ def chouka():
             # time.sleep(t)
 
 
-##########################################################
-# 蓝蛋升级
+# endregion
+
+
+# region 蓝蛋升级
 
 
 def shengxing():
@@ -1199,8 +1209,7 @@ def shengxing():
     refresh = 0
     while True:
         # 鼠标移到右侧中止
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -1237,9 +1246,10 @@ def shengxing():
                 time.sleep(t)
 
 
-##########################################################
-# 秘境召唤
+# endregion
 
+
+# region 秘境召唤
 
 def mijing():
     "秘境召唤"
@@ -1247,8 +1257,7 @@ def mijing():
     refresh = 0
     while True:
         # 鼠标移到右侧中止
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -1312,9 +1321,10 @@ def mijing():
                     break
 
 
-########################################################
-# 妖气封印和秘闻
+# endregion
 
+
+# region 妖气封印和秘闻
 
 def yaoqi():
     "妖气封印和秘闻"
@@ -1322,8 +1332,7 @@ def yaoqi():
     count = 0
     refresh = 0
     while True:  # 直到取消，或者出错
-        if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
-            select_mode()
+        checkstopscript()
 
         # 截屏
         screen = action.screenshot(monitor)
@@ -1375,6 +1384,20 @@ def yaoqi():
             select_mode()
 
 
-####################################################
+# endregion
+
+
+# region 一些代码封装
+
+def checkstopscript():
+    "检测退出脚本，重新进入到模式选择"
+    # 鼠标移到右侧中止
+    if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
+        select_mode()
+    return
+
+# endregion
+
+
 if __name__ == '__main__':
     select_mode()
