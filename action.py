@@ -1,6 +1,7 @@
 import cv2, time, os, random, sys, mss
 import numpy
 from PIL import ImageGrab
+import config
 
 # 检测系统
 if sys.platform == 'darwin':
@@ -128,7 +129,7 @@ def cheat(p, w, h):
 
 
 def get_game_screen(mp):
-    "多个显示器的情况下，获取游戏所在的显示器，下面的下标2是手动写的，双屏的副屏"
+    "多个显示器的情况下，获取游戏所在的显示器"
     sct = mss.mss()
     monitors = sct.monitors
     # 如果有第二个显示器，单显示器会有两个，双屏三个，依次类推
@@ -136,7 +137,7 @@ def get_game_screen(mp):
         print('检测到多个显示器，请把游戏放到主显示器左上角')
 
     # 获取第1个显示器的坐标和尺寸，也就是主显示器
-    target_monitor = monitors[1]
+    target_monitor = monitors[config.MAIN_SCREEN_INDEX]
     monitor = {"top": target_monitor["top"], "left": target_monitor["left"], "width": target_monitor["width"],
                    "height": target_monitor["height"]}
     # 截取第二个显示器的图像

@@ -1,3 +1,22 @@
+## 以下为Fork后更新内容
+
+#### 已知问题
+
+1. 脚本应该是基于`1920*1080`分辨率下的，在`2K`分辨率下不能正常工作（猜测，尚未测试）
+
+Windows安装依赖包，使用清华镜像加速：
+
+```
+
+pip install opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install pyautogui -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install mss -i https://pypi.tuna.tsinghua.edu.cn/simple
+pip install Pillow -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+```
+
+
+## 以下为原文内容
 感谢anywheretogo大佬提供的脚本框架，此脚本在原作基础上加入了很多功能，也修复了一些问题。开发测试均基于体验服，平台为电脑桌面版新引擎测试（模拟器上由于画面不一致可能不能用）。
 
 1. 安装python
@@ -15,24 +34,3 @@ Mac：在终端（terminal）下分别运行 `pip3 install opencv-python` 和 `p
 
 解放双手 Have fun!
 
-## 备注内容
-
-#### 已知问题
-
-1. 双屏下不能正常工作
-2. 2K分辨率下不能正常工作
-
-
-
-1. 脚本应该是基于`1920*1080`分辨率下的，在`2K`分辨率下不能正常工作
-
-Windows安装依赖包，使用清华镜像加速：
-
-```
-
-pip install opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install pyautogui -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install mss -i https://pypi.tuna.tsinghua.edu.cn/simple
-pip install Pillow -i https://pypi.tuna.tsinghua.edu.cn/simple
-
-```
