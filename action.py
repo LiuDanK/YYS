@@ -122,15 +122,28 @@ def cut(screen, upleft, downright):
 
 # 随机偏移坐标，防止游戏的外挂检测。p是原坐标，w、n是目标图像宽高，返回目标范围内的一个随机坐标
 def cheat(p, w, h):
-    a, b = p
+    k, b = p
     if scalar:
         w, h = int(w / 3 / 2), int(h / 3 / 2)
     else:
         w, h = int(w / 3), int(h / 3)
     c, d = random.randint(-w, w), random.randint(-h, h)
-    e, f = a + c, b + d
+    e, f = k + c, b + d
     y = [e, f]
+    print('随机坐标：', p, w, h, y)
     return y
+
+
+# 随机偏移坐标，防止游戏的外挂检测。
+def cheat_jixu(p, w, h):
+    "继续是可以点击全屏的，所以随机性大一点更合理"
+    l, r = p
+    c, d = random.randint(l - 400, l - 100), random.randint(30, 300)
+    e, f = l + c, r - d
+    y = [e, f]
+    print('随机坐标：', p, y)
+    return y
+
 
 # 多个显示器的情况下，获取游戏所在的显示器
 

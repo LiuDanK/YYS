@@ -322,7 +322,7 @@ def yuhun_dashou():
 
         # 自动点击通关结束后的页面
         for i in ['jujue', 'moren', 'queding', 'querenyuhun',
-                  'ying', 'jiangli', 'jixu',
+                  'jixu', 'ying', 'jiangli',
                   'jieshou2', 'jieshou', 'shibai']:
             want = imgs[i]
             size = want[0].shape
@@ -346,10 +346,14 @@ def yuhun_dashou():
                     cishu = cishu + 1
                     print('挑战次数：', cishu)
                 print('挑战中。。。', i)
-                xy = action.cheat(pts[0], w, h - 10)
+                # xy = action.cheat_jixu(pts[0], w, h - 10)
+                if i == 'jixu':
+                    xy = action.cheat_jixu(pts[0], w, h - 10)
+                else:
+                    xy = action.cheat(pts[0], w, h - 10)
                 pyautogui.click(xy)
                 last_click = i
-                t = random.randint(30, 80) / 100
+                t = random.randint(config.RANDOM_DELAY_MIN, config.RANDOM_DELAY_MAX) / 1000
                 time.sleep(t)
                 break
 
@@ -996,6 +1000,7 @@ def douji():
                     time.sleep(t)
                     break
 
+
 # endregion
 
 
@@ -1063,6 +1068,7 @@ def huodong():
                     pyautogui.click(xy)
 
                 time.sleep(t)
+
 
 # endregion
 
@@ -1395,6 +1401,7 @@ def checkstopscript():
     if pyautogui.position()[0] >= pyautogui.size()[0] * 0.98:
         select_mode()
     return
+
 
 # endregion
 
